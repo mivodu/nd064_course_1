@@ -1,5 +1,5 @@
 FROM python:3.8
-LABEL maintainer="Katie Gamanji"
+LABEL maintainer="Michael Volkmann"
 
 COPY . /app
 WORKDIR /app
