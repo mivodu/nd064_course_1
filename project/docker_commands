@@ -1,13 +1,54 @@
 ## Docker commands used to build the application 
-# TODO: insert the docker build command
 docker build -t techtrends .
 
 ## Docker commands used to run the application
-# TODO: insert the docker run command
 docker run -d -p 7111:3111 techtrends
 
 ## Docker commands used to get the application logs
-# TODO: insert the docker logs command
+# container logs (stdout)
+docker logs epic_joliot
+# application logs (app.log)
+docker exec -t -i epic_joliot /bin/bash
+cat app.log
 
 ## Logs from the container running the TechTrends application
-# TODO: paste logs from the Docker container 
+# logs from docker (stdout)
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: off
+ * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+10.0.2.2 - - [29/May/2022 08:56:42] "GET / HTTP/1.1" 200 -
+10.0.2.2 - - [29/May/2022 08:56:42] "GET /favicon.ico HTTP/1.1" 404 -
+Articel 'CNCF Cloud Native Interactive Landscape' retrieved
+10.0.2.2 - - [29/May/2022 08:57:17] "GET /4 HTTP/1.1" 200 -
+Health check successfully executed
+10.0.2.2 - - [29/May/2022 08:59:16] "GET /healthz HTTP/1.1" 200 -
+10.0.2.2 - - [29/May/2022 08:59:45] "GET /metrics HTTP/1.1" 200 -
+10.0.2.2 - - [29/May/2022 09:00:26] "GET / HTTP/1.1" 200 -
+10.0.2.2 - - [29/May/2022 09:00:26] "GET /favicon.ico HTTP/1.1" 404 -
+About us page has been retrieved
+10.0.2.2 - - [29/May/2022 09:00:29] "GET /about HTTP/1.1" 200 -
+10.0.2.2 - - [29/May/2022 09:00:32] "GET /create HTTP/1.1" 200 -
+New articel 'My new post' created
+10.0.2.2 - - [29/May/2022 09:00:46] "POST /create HTTP/1.1" 302 -
+10.0.2.2 - - [29/May/2022 09:00:46] "GET / HTTP/1.1" 200 -
+
+# logs from app.log 
+[2022-05-29 08:56:31,940] INFO:  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+[2022-05-29 08:56:42,045] INFO: 10.0.2.2 - - [29/May/2022 08:56:42] "GET / HTTP/1.1" 200 -
+[2022-05-29 08:56:42,066] INFO: 10.0.2.2 - - [29/May/2022 08:56:42] "GET /favicon.ico HTTP/1.1" 404 -
+[2022-05-29 08:57:17,308] INFO: Articel 'CNCF Cloud Native Interactive Landscape' retrieved
+[2022-05-29 08:57:17,312] INFO: 10.0.2.2 - - [29/May/2022 08:57:17] "GET /4 HTTP/1.1" 200 -
+[2022-05-29 08:59:16,898] INFO: Health check successfully executed
+[2022-05-29 08:59:16,900] INFO: 10.0.2.2 - - [29/May/2022 08:59:16] "GET /healthz HTTP/1.1" 200 -
+[2022-05-29 08:59:45,011] INFO: 10.0.2.2 - - [29/May/2022 08:59:45] "GET /metrics HTTP/1.1" 200 -
+[2022-05-29 09:00:26,905] INFO: 10.0.2.2 - - [29/May/2022 09:00:26] "GET / HTTP/1.1" 200 -
+[2022-05-29 09:00:26,928] INFO: 10.0.2.2 - - [29/May/2022 09:00:26] "GET /favicon.ico HTTP/1.1" 404 -
+[2022-05-29 09:00:29,181] INFO: About us page has been retrieved
+[2022-05-29 09:00:29,184] INFO: 10.0.2.2 - - [29/May/2022 09:00:29] "GET /about HTTP/1.1" 200 -
+[2022-05-29 09:00:32,819] INFO: 10.0.2.2 - - [29/May/2022 09:00:32] "GET /create HTTP/1.1" 200 -
+[2022-05-29 09:00:46,202] INFO: New articel 'My new post' created
+[2022-05-29 09:00:46,203] INFO: 10.0.2.2 - - [29/May/2022 09:00:46] "POST /create HTTP/1.1" 302 -
+[2022-05-29 09:00:46,211] INFO: 10.0.2.2 - - [29/May/2022 09:00:46] "GET / HTTP/1.1" 200 -
