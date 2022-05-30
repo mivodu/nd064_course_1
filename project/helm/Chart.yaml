@@ -3,7 +3,7 @@ name: techtrends
 description: Install techtrends deployment manifests
 keywords:
 - techtrends 
-version: 1.0.0
+version: latest
 maintainers:
 - name: Michael Volkmann 
   email: michael.volkmann2@vodafone.com 

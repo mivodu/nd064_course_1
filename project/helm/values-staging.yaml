@@ -16,6 +16,3 @@ resources:
   limits:
     cpu: 500m
     memory: 128 Mi
-
-configmap:
-  data: "version: 1.18.0"

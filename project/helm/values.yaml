@@ -21,6 +21,3 @@ resources:
   limits:
     cpu: 500m
     memory: 128Mi
-
-configmap:
-  data: "version: alpine"
