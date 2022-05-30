@@ -1,0 +1,21 @@
+namespace:
+  name: staging 
+ 
+service:
+  port: 5111
+
+image:
+  pullPolicy: IfNotPresent
+  
+replicaCount: 3
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 90Mi
+  limits:
+    cpu: 500m
+    memory: 128 Mi
+
+configmap:
+  data: "version: 1.18.0"
