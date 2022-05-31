@@ -19,7 +19,8 @@ spec:
       - image: mivodu/techtrends:latest
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: techtrends
-        resources: {{ toYaml .Values.resources | indent 12 }}
+        resources: 
+{{ toYaml .Values.resources | indent 12 }}
         ports:
         - containerPort: 3111
         livenessProbe:
