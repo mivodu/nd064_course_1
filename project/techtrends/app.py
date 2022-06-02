@@ -6,12 +6,11 @@ from werkzeug.exceptions import abort
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
-db_connection_counter = 0
+
 def get_db_connection():
-    global db_connection_counter
     connection = sqlite3.connect('database.db')
     connection.row_factory = sqlite3.Row
-    db_connection_counter += 1
+    app.db_conn_counter += 1
     return connection
 
 # Function to get a post using its ID
@@ -25,6 +24,8 @@ def get_post(post_id):
 # Define the Flask application
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
+# Flask configuration of database connection count 
+app.config['DB_CONN_COUNTER'] = 0
 
 # Define the main route of the web application 
 @app.route('/')
@@ -114,7 +115,7 @@ def metrics():
     db_post_count = connection.execute('Select count(*) from posts').fetchone()
     connection.close()
     response = app.response_class(
-            response=json.dumps({"db_connection_count": db_connection_counter, "post_count": db_post_count[0]}),
+            response=json.dumps({"db_connection_count": app.db_conn_counter, "post_count": db_post_count[0]}),
             status=200,
             mimetype='application/json'
     )
