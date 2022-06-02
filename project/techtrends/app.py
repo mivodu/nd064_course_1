@@ -6,12 +6,15 @@ from werkzeug.exceptions import abort
 
 # Function to get a database connection.
 # This function connects to database with the name `database.db`
-
 def get_db_connection():
-    connection = sqlite3.connect('database.db')
-    connection.row_factory = sqlite3.Row
-    app.db_conn_counter += 1
-    return connection
+    try:
+        connection = sqlite3.connect('database.db')
+    except:
+        app.logger.error('Database does not exist. Run python init_db.py to create it')
+    else:
+        connection.row_factory = sqlite3.Row
+        app.config["DB_CONN_COUNTER"] += 1
+        return connection
 
 # Function to get a post using its ID
 def get_post(post_id):
@@ -30,10 +33,13 @@ app.config['DB_CONN_COUNTER'] = 0
 # Define the main route of the web application 
 @app.route('/')
 def index():
-    connection = get_db_connection()
-    posts = connection.execute('SELECT * FROM posts').fetchall()
-    connection.close()
-    return render_template('index.html', posts=posts)
+    try:
+        connection = get_db_connection()
+        posts = connection.execute('SELECT * FROM posts').fetchall()
+        connection.close()
+        return render_template('index.html', posts=posts)
+    except:
+        return render_template('404.html'), 404
 
 # Define how each individual article is rendered 
 # If the post ID is not found a 404 page is shown
@@ -42,11 +48,11 @@ def post(post_id):
     post = get_post(post_id)
     if post is None: 
         # Add logging: Article does not exist
-        app.logger.info("Articel does not exist")
+        app.logger.error("Articel does not exist")
         return render_template('404.html'), 404
     else:
-        # Add logging: Write retrieved Titelto log
-        app.logger.info("Articel '%s' retrieved" %post["title"])
+        # Add logging: Write retrieved Titel to log
+        app.logger.info('%r article retrieved', post['title'])
         return render_template('post.html', post=post)
 
 # Define the About Us page
@@ -79,11 +85,6 @@ def create():
 # Define the health check endpoint functionality
 @app.route('/healthz')
 def healthz():
-    response = app.response_class(
-                response=json.dumps({"result":"OK - healthy"}),
-                status=200,
-                mimetype='application/json'
-    )
     try:
         connection = get_db_connection()
         test_table = connection.execute('SELECT * FROM posts').fetchall()
@@ -112,25 +113,50 @@ def metrics():
 #    global db_connection_counter
     connection = get_db_connection()
     # Query DB for number of posts
-    db_post_count = connection.execute('Select count(*) from posts').fetchone()
-    connection.close()
-    response = app.response_class(
-            response=json.dumps({"db_connection_count": app.db_conn_counter, "post_count": db_post_count[0]}),
+    if connection:
+        try:
+            test_table = connection.execute('SELECT * FROM posts').fetchall()
+        except:
+            app.logger.error('Table POSTS does not exist. Run python init_db.py to create it')
+            response = app.response_class(
+                response=json.dumps({"db_connection_count": app.config['DB_CONN_COUNTER'], "post_count": "Not available"}),
+                status=200,
+                mimetype='application/json'
+            )
+            return response
+        else:
+            db_post_count = connection.execute('Select count(*) from posts').fetchone()
+            response = app.response_class(
+                response=json.dumps({"db_connection_count": app.config['DB_CONN_COUNTER'], "post_count": db_post_count[0]}),
+                status=200,
+                mimetype='application/json'
+            )
+            app.logger.info('Metrics request successfull')
+            return response
+        finally:
+            if connection:
+                connection.close()
+    else:
+        app.logger.error('Database does not exist. Run python init_db.py to create it')
+        response = app.response_class(
+            response=json.dumps({"db_connection_count": "Not available", "post_count": "Not available"}),
             status=200,
             mimetype='application/json'
-    )
-    return response
+        )
+        return response
 
 # start the application on port 3111
 if __name__ == "__main__":
 
     # add logging
     logging.basicConfig(
-        filename='app.log', 
-        level=logging.DEBUG, 
-        format='[%(asctime)s] %(levelname)s: %(message)s'
+        level=logging.DEBUG,
+        format="%(asctime)s [%(levelname)s] %(message)s",
+        handlers=[
+            logging.FileHandler("app.log"),
+            logging.StreamHandler()
+        ]
     )
-    logging.getLogger().addHandler(logging.StreamHandler())
     
     app.run(host='0.0.0.0', port='3111')
     
