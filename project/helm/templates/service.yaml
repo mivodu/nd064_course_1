@@ -6,6 +6,6 @@ metadata:
 spec:
   ports:
   - port: {{ .Values.service.port }}
-    protocol: TCP
-    targetPort: 3111
-  type: ClusterIP
+    protocol: {{ .Values.service.protocol }}
+    targetPort: {{ .Values.service.targetport }}
+  type: {{ .Values.type }}
