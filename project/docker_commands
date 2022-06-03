@@ -20,35 +20,79 @@ cat app.log
  * Debug mode: off
  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
 10.0.2.2 - - [29/May/2022 08:56:42] "GET / HTTP/1.1" 200 -
-10.0.2.2 - - [29/May/2022 08:56:42] "GET /favicon.ico HTTP/1.1" 404 -
-Articel 'CNCF Cloud Native Interactive Landscape' retrieved
-10.0.2.2 - - [29/May/2022 08:57:17] "GET /4 HTTP/1.1" 200 -
-Health check successfully executed
-10.0.2.2 - - [29/May/2022 08:59:16] "GET /healthz HTTP/1.1" 200 -
-10.0.2.2 - - [29/May/2022 08:59:45] "GET /metrics HTTP/1.1" 200 -
-10.0.2.2 - - [29/May/2022 09:00:26] "GET / HTTP/1.1" 200 -
-10.0.2.2 - - [29/May/2022 09:00:26] "GET /favicon.ico HTTP/1.1" 404 -
-About us page has been retrieved
-10.0.2.2 - - [29/May/2022 09:00:29] "GET /about HTTP/1.1" 200 -
-10.0.2.2 - - [29/May/2022 09:00:32] "GET /create HTTP/1.1" 200 -
-New articel 'My new post' created
-10.0.2.2 - - [29/May/2022 09:00:46] "POST /create HTTP/1.1" 302 -
-10.0.2.2 - - [29/May/2022 09:00:46] "GET / HTTP/1.1" 200 -
+2022-06-03 11:29:36,704 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:36] "GET / HTTP/1.1" 200 -
+2022-06-03 11:29:36,832 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:36] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:29:40,294 [INFO] 'CNCF Cloud Native Definition v1.0' article retrieved
+2022-06-03 11:29:40,298 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:40] "GET /5 HTTP/1.1" 200 -
+2022-06-03 11:29:40,433 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:40] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:29:52,353 [ERROR] Articel does not exist
+2022-06-03 11:29:52,358 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:52] "GET /11 HTTP/1.1" 404 -
+2022-06-03 11:29:52,522 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:52] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:29:58,265 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:58] "GET /create HTTP/1.1" 200 -
+2022-06-03 11:29:58,408 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:58] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:30:04,522 [INFO] New articel 'test' created
+2022-06-03 11:30:04,523 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:04] "POST /create HTTP/1.1" 302 -
+2022-06-03 11:30:04,560 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:04] "GET / HTTP/1.1" 200 -
+2022-06-03 11:30:04,715 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:04] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:30:58,629 [INFO] Health check successfully executed
+2022-06-03 11:30:58,629 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:58] "GET /healthz HTTP/1.1" 200 -
+2022-06-03 11:31:16,408 [INFO] Metrics request successfull
+2022-06-03 11:31:16,410 [INFO] 10.0.2.2 - - [03/Jun/2022 11:31:16] "GET /metrics HTTP/1.1" 200 -
+2022-06-03 11:32:31,072 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:31] "GET / HTTP/1.1" 200 -
+2022-06-03 11:32:31,188 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:31] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:32:34,274 [INFO] 'Kubernetes Certification' article retrieved
+2022-06-03 11:32:34,274 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:34] "GET /6 HTTP/1.1" 200 -
+2022-06-03 11:32:34,416 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:34] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:32:37,662 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:37] "GET /create HTTP/1.1" 200 -
+2022-06-03 11:32:37,851 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:37] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:32:55,498 [INFO] New articel 'new post' created
+2022-06-03 11:32:55,499 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:55] "POST /create HTTP/1.1" 302 -
+2022-06-03 11:32:55,519 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:55] "GET / HTTP/1.1" 200 -
+2022-06-03 11:32:55,646 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:55] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:33:03,368 [INFO] Metrics request successfull
+2022-06-03 11:33:03,369 [INFO] 10.0.2.2 - - [03/Jun/2022 11:33:03] "GET /metrics HTTP/1.1" 200 -
+2022-06-03 11:36:28,233 [ERROR] Table POSTS does not exist. Run python init_db.py to create it
+2022-06-03 11:36:28,241 [INFO] 10.0.2.2 - - [03/Jun/2022 11:36:28] "GET /metrics HTTP/1.1" 200 -
+2022-06-03 11:36:46,393 [INFO] Health check not successful
+2022-06-03 11:36:46,393 [INFO] 10.0.2.2 - - [03/Jun/2022 11:36:46] "GET /healthz HTTP/1.1" 500 -
+2022-06-03 11:37:35,774 [INFO] 10.0.2.2 - - [03/Jun/2022 11:37:35] "GET / HTTP/1.1" 404 -
+2022-06-03 11:37:35,879 [INFO] 10.0.2.2 - - [03/Jun/2022 11:37:35] "GET /static/css/main.css HTTP/1.1" 304 -
 
 # logs from app.log 
-[2022-05-29 08:56:31,940] INFO:  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
-[2022-05-29 08:56:42,045] INFO: 10.0.2.2 - - [29/May/2022 08:56:42] "GET / HTTP/1.1" 200 -
-[2022-05-29 08:56:42,066] INFO: 10.0.2.2 - - [29/May/2022 08:56:42] "GET /favicon.ico HTTP/1.1" 404 -
-[2022-05-29 08:57:17,308] INFO: Articel 'CNCF Cloud Native Interactive Landscape' retrieved
-[2022-05-29 08:57:17,312] INFO: 10.0.2.2 - - [29/May/2022 08:57:17] "GET /4 HTTP/1.1" 200 -
-[2022-05-29 08:59:16,898] INFO: Health check successfully executed
-[2022-05-29 08:59:16,900] INFO: 10.0.2.2 - - [29/May/2022 08:59:16] "GET /healthz HTTP/1.1" 200 -
-[2022-05-29 08:59:45,011] INFO: 10.0.2.2 - - [29/May/2022 08:59:45] "GET /metrics HTTP/1.1" 200 -
-[2022-05-29 09:00:26,905] INFO: 10.0.2.2 - - [29/May/2022 09:00:26] "GET / HTTP/1.1" 200 -
-[2022-05-29 09:00:26,928] INFO: 10.0.2.2 - - [29/May/2022 09:00:26] "GET /favicon.ico HTTP/1.1" 404 -
-[2022-05-29 09:00:29,181] INFO: About us page has been retrieved
-[2022-05-29 09:00:29,184] INFO: 10.0.2.2 - - [29/May/2022 09:00:29] "GET /about HTTP/1.1" 200 -
-[2022-05-29 09:00:32,819] INFO: 10.0.2.2 - - [29/May/2022 09:00:32] "GET /create HTTP/1.1" 200 -
-[2022-05-29 09:00:46,202] INFO: New articel 'My new post' created
-[2022-05-29 09:00:46,203] INFO: 10.0.2.2 - - [29/May/2022 09:00:46] "POST /create HTTP/1.1" 302 -
-[2022-05-29 09:00:46,211] INFO: 10.0.2.2 - - [29/May/2022 09:00:46] "GET / HTTP/1.1" 200 -
+2022-06-03 11:29:36,704 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:36] "GET / HTTP/1.1" 200 -
+2022-06-03 11:29:36,832 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:36] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:29:40,294 [INFO] 'CNCF Cloud Native Definition v1.0' article retrieved
+2022-06-03 11:29:40,298 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:40] "GET /5 HTTP/1.1" 200 -
+2022-06-03 11:29:40,433 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:40] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:29:52,353 [ERROR] Articel does not exist
+2022-06-03 11:29:52,358 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:52] "GET /11 HTTP/1.1" 404 -
+2022-06-03 11:29:52,522 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:52] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:29:58,265 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:58] "GET /create HTTP/1.1" 200 -
+2022-06-03 11:29:58,408 [INFO] 10.0.2.2 - - [03/Jun/2022 11:29:58] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:30:04,522 [INFO] New articel 'test' created
+2022-06-03 11:30:04,523 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:04] "POST /create HTTP/1.1" 302 -
+2022-06-03 11:30:04,560 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:04] "GET / HTTP/1.1" 200 -
+2022-06-03 11:30:04,715 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:04] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:30:58,629 [INFO] Health check successfully executed
+2022-06-03 11:30:58,629 [INFO] 10.0.2.2 - - [03/Jun/2022 11:30:58] "GET /healthz HTTP/1.1" 200 -
+2022-06-03 11:31:16,408 [INFO] Metrics request successfull
+2022-06-03 11:31:16,410 [INFO] 10.0.2.2 - - [03/Jun/2022 11:31:16] "GET /metrics HTTP/1.1" 200 -
+2022-06-03 11:32:31,072 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:31] "GET / HTTP/1.1" 200 -
+2022-06-03 11:32:31,188 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:31] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:32:34,274 [INFO] 'Kubernetes Certification' article retrieved
+2022-06-03 11:32:34,274 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:34] "GET /6 HTTP/1.1" 200 -
+2022-06-03 11:32:34,416 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:34] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:32:37,662 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:37] "GET /create HTTP/1.1" 200 -
+2022-06-03 11:32:37,851 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:37] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:32:55,498 [INFO] New articel 'new post' created
+2022-06-03 11:32:55,499 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:55] "POST /create HTTP/1.1" 302 -
+2022-06-03 11:32:55,519 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:55] "GET / HTTP/1.1" 200 -
+2022-06-03 11:32:55,646 [INFO] 10.0.2.2 - - [03/Jun/2022 11:32:55] "GET /static/css/main.css HTTP/1.1" 304 -
+2022-06-03 11:33:03,368 [INFO] Metrics request successfull
+2022-06-03 11:33:03,369 [INFO] 10.0.2.2 - - [03/Jun/2022 11:33:03] "GET /metrics HTTP/1.1" 200 -
+2022-06-03 11:36:28,233 [ERROR] Table POSTS does not exist. Run python init_db.py to create it
+2022-06-03 11:36:28,241 [INFO] 10.0.2.2 - - [03/Jun/2022 11:36:28] "GET /metrics HTTP/1.1" 200 -
+2022-06-03 11:36:46,393 [INFO] Health check not successful
+2022-06-03 11:36:46,393 [INFO] 10.0.2.2 - - [03/Jun/2022 11:36:46] "GET /healthz HTTP/1.1" 500 -
+2022-06-03 11:37:35,774 [INFO] 10.0.2.2 - - [03/Jun/2022 11:37:35] "GET / HTTP/1.1" 404 -
+2022-06-03 11:37:35,879 [INFO] 10.0.2.2 - - [03/Jun/2022 11:37:35] "GET /static/css/main.css HTTP/1.1" 304 -
