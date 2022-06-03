@@ -6,8 +6,7 @@ LABEL maintainer="Michael Volkmann"
 COPY ./techtrends /app
 WORKDIR /app
 # Install packages defined in the requirements.txt file
-RUN pip install -U pip wheel setuptools && \\
-    pip install -r requirements.txt
+RUN pip install -U pip wheel setuptools && pip install -r requirements.txt
 # Initialize database
 RUN python init_db.py
 
